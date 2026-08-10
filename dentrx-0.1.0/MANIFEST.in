@@ -1,6 +1,0 @@
-include README.md
-include LICENSE
-include CITATION.cff
-include CHANGELOG.md
-recursive-include dentrx/data *.json
-recursive-include schema *.json

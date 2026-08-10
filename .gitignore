@@ -5,6 +5,8 @@ __pycache__/
 .eggs/
 build/
 dist/
+dentrx-*/
+sdist/
 .venv/
 venv/
 .pytest_cache/
