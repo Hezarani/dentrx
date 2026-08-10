@@ -1,0 +1,256 @@
+{
+  "pillar": "therapeutic_infection",
+  "version": "0.1.0",
+  "generated": "2026-08-09",
+  "meta": {
+    "disclaimer": "Educational clinical reference only — not a prescription. For pulpal/periapical pain and localized swelling in an otherwise healthy patient, the treatment is DEFINITIVE DENTAL TREATMENT (e.g., pulpotomy, pulpectomy, non-surgical root canal, or incision & drainage), not antibiotics. Antibiotics are added only with systemic involvement (fever/malaise) or high risk of spread. Verify doses against the current source and local formulary.",
+    "notes": "US adult figures from ADA 2019 (Lockhart et al.). US paediatric dosing from AAPD 'Useful Medications'. UK figures from SDCEP (Bacterial Infections, updated May 2026) and NICE/UKHSA. Metronidazole: avoid with warfarin; avoid alcohol during and 48h after. Co-amoxiclav is usually unnecessary."
+  },
+  "rules": [
+    {
+      "id": "us.therapeutic.adult.no_systemic_involvement",
+      "pillar": "therapeutic_infection",
+      "jurisdiction": "US",
+      "population": { "group": "adult" },
+      "scenario": {
+        "indication": "pulpal_periapical_infection",
+        "context": ["symptomatic_irreversible_pulpitis", "symptomatic_apical_periodontitis", "localized_acute_apical_abscess"],
+        "triggers": { "systemic_involvement": false }
+      },
+      "recommendation": {
+        "action": "definitive_dental_treatment",
+        "summary": "Do NOT prescribe antibiotics. Provide definitive conservative dental treatment (pulpotomy, pulpectomy, non-surgical root canal, or incision & drainage) and manage pain with analgesics.",
+        "options": []
+      },
+      "rationale": "Antibiotics provide negligible benefit and potentially large harms for these conditions in healthy adults without systemic involvement; definitive dental treatment resolves the source.",
+      "strength": "recommendation (against antibiotics)",
+      "certainty": "low to moderate",
+      "sources": ["ada_antibiotics_pulpal_periapical_2019"],
+      "source_locator": "Recommendations against antibiotics; good practice statements.",
+      "status": "verified",
+      "last_reviewed": "2026-08-09"
+    },
+    {
+      "id": "us.therapeutic.adult.systemic.pen_none",
+      "pillar": "therapeutic_infection",
+      "jurisdiction": "US",
+      "population": { "group": "adult" },
+      "scenario": {
+        "indication": "pulpal_periapical_infection",
+        "context": ["acute_apical_abscess_with_systemic_involvement"],
+        "severity": ["systemic_involvement"],
+        "triggers": { "systemic_involvement": true, "penicillin_allergy": "none" }
+      },
+      "recommendation": {
+        "action": "prescribe",
+        "line": "first",
+        "summary": "With systemic involvement (fever/malaise): amoxicillin 500 mg three times daily for 3–7 days, OR penicillin V 500 mg four times daily for 3–7 days — alongside definitive dental treatment. Re-evaluate at 3 days.",
+        "options": [
+          { "regimen_id": "amoxicillin", "label": "Amoxicillin", "components": [ { "drug": "amoxicillin", "dose": "500 mg", "route": "oral", "frequency": "three times daily", "duration": "3–7 days" } ] },
+          { "regimen_id": "penicillin_v", "label": "Penicillin V (phenoxymethylpenicillin)", "components": [ { "drug": "penicillin V", "dose": "500 mg", "route": "oral", "frequency": "four times daily", "duration": "3–7 days" } ] }
+        ]
+      },
+      "cautions": ["reassess at ~3 days; discontinue 24h after symptoms resolve", "antibiotics are an adjunct to, not a substitute for, definitive treatment"],
+      "rationale": "Antibiotics are indicated when systemic signs are present or the risk of progression is high.",
+      "strength": "recommendation",
+      "certainty": "low",
+      "sources": ["ada_antibiotics_pulpal_periapical_2019"],
+      "source_locator": "Recommendation for systemic involvement.",
+      "status": "verified",
+      "last_reviewed": "2026-08-09"
+    },
+    {
+      "id": "us.therapeutic.adult.systemic.pen_non_severe",
+      "pillar": "therapeutic_infection",
+      "jurisdiction": "US",
+      "population": { "group": "adult" },
+      "scenario": {
+        "indication": "pulpal_periapical_infection",
+        "severity": ["systemic_involvement"],
+        "triggers": { "systemic_involvement": true, "penicillin_allergy": "non_severe" }
+      },
+      "recommendation": {
+        "action": "prescribe",
+        "line": "alternative",
+        "summary": "Penicillin allergy without anaphylaxis/angioedema/urticaria: cephalexin 500 mg four times daily for 3–7 days.",
+        "options": [
+          { "regimen_id": "cephalexin", "label": "Cephalexin", "components": [ { "drug": "cephalexin", "dose": "500 mg", "route": "oral", "frequency": "four times daily", "duration": "3–7 days" } ], "notes": "Avoid if severe (anaphylactic) penicillin allergy." }
+        ]
+      },
+      "contraindications": ["cephalosporins if severe penicillin allergy"],
+      "rationale": "Cephalexin is an option for non-severe penicillin allergy.",
+      "strength": "recommendation",
+      "certainty": "low",
+      "sources": ["ada_antibiotics_pulpal_periapical_2019"],
+      "source_locator": "Alternatives for penicillin allergy.",
+      "status": "verified",
+      "last_reviewed": "2026-08-09"
+    },
+    {
+      "id": "us.therapeutic.adult.systemic.pen_severe",
+      "pillar": "therapeutic_infection",
+      "jurisdiction": "US",
+      "population": { "group": "adult" },
+      "scenario": {
+        "indication": "pulpal_periapical_infection",
+        "severity": ["systemic_involvement"],
+        "triggers": { "systemic_involvement": true, "penicillin_allergy": "severe" }
+      },
+      "recommendation": {
+        "action": "prescribe",
+        "line": "alternative",
+        "summary": "Severe penicillin allergy: azithromycin 500 mg day 1 then 250 mg once daily for 4 days (ADA 2019 preferred). ADA 2019 also lists clindamycin; because of C. difficile risk, clarithromycin 500 mg twice daily is a common stewardship alternative.",
+        "options": [
+          { "regimen_id": "azithromycin", "label": "Azithromycin (ADA 2019 preferred)", "components": [ { "drug": "azithromycin", "dose": "500 mg day 1, then 250 mg", "route": "oral", "frequency": "once daily", "duration": "days 2–5" } ] },
+          { "regimen_id": "clindamycin", "label": "Clindamycin (ADA 2019 alternative)", "components": [ { "drug": "clindamycin", "dose": "300 mg", "route": "oral", "frequency": "three times daily", "duration": "3–7 days" } ], "notes": "Guideline-listed alternative; weigh Clostridioides difficile risk. Confirm dose against the source." },
+          { "regimen_id": "clarithromycin", "label": "Clarithromycin (stewardship alternative)", "components": [ { "drug": "clarithromycin", "dose": "500 mg", "route": "oral", "frequency": "twice daily", "duration": "3–7 days" } ], "notes": "Often preferred over clindamycin for lower C. difficile risk." }
+        ],
+        "notes": "ADA 2019 lists azithromycin or clindamycin for severe penicillin allergy; clarithromycin is shown as a stewardship-oriented substitution."
+      },
+      "contraindications": ["all cephalosporins (severe allergy)"],
+      "rationale": "Macrolides are the alternative when penicillin allergy is severe; clindamycin is de-emphasised due to C. difficile risk.",
+      "strength": "recommendation",
+      "certainty": "low",
+      "sources": ["ada_antibiotics_pulpal_periapical_2019"],
+      "source_locator": "Alternatives for penicillin allergy.",
+      "status": "verified",
+      "last_reviewed": "2026-08-09"
+    },
+    {
+      "id": "us.therapeutic.child.systemic",
+      "pillar": "therapeutic_infection",
+      "jurisdiction": "US",
+      "population": { "group": "child", "notes": "Children < 40 kg use weight-based dosing; >= 40 kg use adult dosing." },
+      "scenario": {
+        "indication": "pulpal_periapical_infection",
+        "severity": ["systemic_involvement"],
+        "triggers": { "systemic_involvement": true }
+      },
+      "recommendation": {
+        "action": "prescribe",
+        "line": "first",
+        "summary": "Children with systemic involvement, alongside definitive treatment: amoxicillin 20–40 mg/kg/day divided every 8 hours (or 25–45 mg/kg/day divided every 12 hours); ≥40 kg use adult dosing. Penicillin-allergic: azithromycin (weight-based) or, if needed, clindamycin per specialist advice.",
+        "options": [
+          { "regimen_id": "amoxicillin_paed", "label": "Amoxicillin (weight-based)", "components": [ { "drug": "amoxicillin", "dose": "20–40 mg/kg/day divided q8h (or 25–45 mg/kg/day divided q12h)", "dose_basis": "weight", "route": "oral", "duration": "per clinical course", "max_single": "500 mg" } ] },
+          { "regimen_id": "azithromycin_paed", "label": "Azithromycin (penicillin allergy, weight-based)", "components": [ { "drug": "azithromycin", "dose": "per weight", "dose_basis": "weight", "route": "oral", "notes": "Confirm current AAPD/weight-based dose." } ] }
+        ]
+      },
+      "cautions": ["definitive dental treatment remains the priority", "confirm weight-based dose and maximum"],
+      "rationale": "Paediatric therapeutic dosing per AAPD, applied only when systemic involvement is present.",
+      "strength": "reference (AAPD)",
+      "certainty": "not_stated",
+      "sources": ["aapd_useful_medications", "ada_antibiotics_pulpal_periapical_2019"],
+      "source_locator": "AAPD dosing; ADA indication for systemic involvement.",
+      "status": "verified",
+      "last_reviewed": "2026-08-09"
+    },
+    {
+      "id": "uk.therapeutic.adult.no_systemic_involvement",
+      "pillar": "therapeutic_infection",
+      "jurisdiction": "UK",
+      "population": { "group": "adult" },
+      "scenario": {
+        "indication": "dental_abscess",
+        "triggers": { "systemic_involvement": false }
+      },
+      "recommendation": {
+        "action": "definitive_dental_treatment",
+        "summary": "Do NOT prescribe antibiotics for localized dental infection without spreading/systemic signs. Provide dental treatment (drainage/extirpation/extraction) and analgesia.",
+        "options": []
+      },
+      "rationale": "SDCEP/NICE: antibiotics are not indicated for localized infection amenable to dental treatment; overuse drives resistance.",
+      "strength": "advised (SDCEP)",
+      "certainty": "not_stated",
+      "sources": ["sdcep_drug_prescribing", "nice_ukhsa_dental_abscess"],
+      "source_locator": "SDCEP dental abscess management; NICE CKS.",
+      "status": "verified",
+      "last_reviewed": "2026-08-09"
+    },
+    {
+      "id": "uk.therapeutic.adult.systemic.pen_none",
+      "pillar": "therapeutic_infection",
+      "jurisdiction": "UK",
+      "population": { "group": "adult" },
+      "scenario": {
+        "indication": "dental_abscess",
+        "severity": ["systemic_involvement", "severe"],
+        "triggers": { "systemic_involvement": true, "penicillin_allergy": "none" }
+      },
+      "recommendation": {
+        "action": "prescribe",
+        "line": "first",
+        "summary": "If antibiotics are indicated (spreading infection / systemic signs), alongside dental treatment: amoxicillin 500 mg three times daily, OR phenoxymethylpenicillin 500 mg–1 g four times daily, for up to 5 days; review at 3 days. Add metronidazole 400 mg three times daily for spreading infection or pyrexia. For severe infection the dose may be doubled.",
+        "options": [
+          { "regimen_id": "amoxicillin_uk", "label": "Amoxicillin", "components": [ { "drug": "amoxicillin", "dose": "500 mg", "route": "oral", "frequency": "three times daily", "duration": "up to 5 days (review at 3)" } ] },
+          { "regimen_id": "phenoxymethylpenicillin_uk", "label": "Phenoxymethylpenicillin (penicillin V)", "components": [ { "drug": "phenoxymethylpenicillin", "dose": "500 mg–1 g", "route": "oral", "frequency": "four times daily", "duration": "up to 5 days (review at 3)", "notes": "Take 30 min before food." } ] },
+          { "regimen_id": "metronidazole_adjunct_uk", "label": "Metronidazole (adjunct for spreading infection/pyrexia)", "components": [ { "drug": "metronidazole", "dose": "400 mg", "route": "oral", "frequency": "three times daily", "duration": "up to 5 days (review at 3)" } ], "notes": "Avoid with warfarin; avoid alcohol during and for 48h after." }
+        ]
+      },
+      "cautions": ["review at 3 days", "co-amoxiclav usually unnecessary", "amoxicillin reserved where penicillin V compliance is difficult (stewardship)"],
+      "rationale": "SDCEP/NICE first-line agents and durations for dental infection requiring antibiotics.",
+      "strength": "advised (SDCEP)",
+      "certainty": "not_stated",
+      "sources": ["sdcep_drug_prescribing", "nice_ukhsa_dental_abscess"],
+      "source_locator": "SDCEP dental abscess first-line antibiotics; NICE-UKHSA table.",
+      "status": "verified",
+      "last_reviewed": "2026-08-09"
+    },
+    {
+      "id": "uk.therapeutic.adult.systemic.pen_allergy",
+      "pillar": "therapeutic_infection",
+      "jurisdiction": "UK",
+      "population": { "group": "adult" },
+      "scenario": {
+        "indication": "dental_abscess",
+        "severity": ["systemic_involvement"],
+        "triggers": { "systemic_involvement": true, "penicillin_allergy": ["non_severe", "severe"] }
+      },
+      "recommendation": {
+        "action": "prescribe",
+        "line": "alternative",
+        "summary": "Penicillin allergy: clarithromycin 500 mg twice daily, OR metronidazole 400 mg three times daily, for up to 5 days; review at 3 days.",
+        "options": [
+          { "regimen_id": "clarithromycin_uk", "label": "Clarithromycin", "components": [ { "drug": "clarithromycin", "dose": "500 mg", "route": "oral", "frequency": "twice daily", "duration": "up to 5 days (review at 3)" } ] },
+          { "regimen_id": "metronidazole_uk", "label": "Metronidazole", "components": [ { "drug": "metronidazole", "dose": "400 mg", "route": "oral", "frequency": "three times daily", "duration": "up to 5 days (review at 3)" } ], "notes": "Avoid with warfarin; avoid alcohol during and for 48h after." }
+        ]
+      },
+      "rationale": "Clarithromycin is preferred over clindamycin (lower C. difficile risk); metronidazole covers anaerobes.",
+      "strength": "advised (SDCEP)",
+      "certainty": "not_stated",
+      "sources": ["sdcep_drug_prescribing", "nice_ukhsa_dental_abscess"],
+      "source_locator": "SDCEP/NICE penicillin-allergy alternatives.",
+      "status": "verified",
+      "last_reviewed": "2026-08-09"
+    },
+    {
+      "id": "uk.therapeutic.child.systemic",
+      "pillar": "therapeutic_infection",
+      "jurisdiction": "UK",
+      "population": { "group": "child" },
+      "scenario": {
+        "indication": "dental_abscess",
+        "severity": ["systemic_involvement"],
+        "triggers": { "systemic_involvement": true }
+      },
+      "recommendation": {
+        "action": "prescribe",
+        "line": "first",
+        "summary": "If antibiotics are indicated (spreading/systemic), alongside dental treatment use BNFc age-based amoxicillin or phenoxymethylpenicillin, add metronidazole for spreading infection, and use clarithromycin if penicillin-allergic. Up to 5 days, review at 3.",
+        "options": [
+          { "regimen_id": "amoxicillin_bnfc", "label": "Amoxicillin (BNFc, age-banded)", "components": [ { "drug": "amoxicillin", "dose": "1–11 mo: 125 mg; 1–4 y: 250 mg; 5–17 y: 500 mg — three times daily", "dose_basis": "weight", "route": "oral", "duration": "up to 5 days (review at 3)" } ], "notes": "Confirm against current BNFc." },
+          { "regimen_id": "phenoxymethylpenicillin_bnfc", "label": "Phenoxymethylpenicillin (BNFc, age-banded)", "components": [ { "drug": "phenoxymethylpenicillin", "dose": "1–5 y: 250 mg; 6–11 y: 500 mg; 12–17 y: 500 mg–1 g — four times daily", "dose_basis": "weight", "route": "oral", "duration": "up to 5 days", "notes": "Take 30 min before food." } ] },
+          { "regimen_id": "metronidazole_bnfc", "label": "Metronidazole (adjunct for spreading infection)", "components": [ { "drug": "metronidazole", "dose": "~7.5 mg/kg (max 400 mg) three times daily", "dose_basis": "weight", "route": "oral", "duration": "up to 5 days" } ], "notes": "Avoid with warfarin; avoid alcohol during and 48h after." },
+          { "regimen_id": "clarithromycin_bnfc", "label": "Clarithromycin (penicillin allergy, BNFc, weight-based)", "components": [ { "drug": "clarithromycin", "dose": "weight-based BD (e.g. 8–11 kg 62.5 mg; 12–19 kg 125 mg; 20–29 kg 187.5 mg; 30–40 kg 250 mg; 12–17 y 250 mg) twice daily", "dose_basis": "weight", "route": "oral", "duration": "up to 5 days" } ] }
+        ]
+      },
+      "cautions": ["definitive dental treatment is the priority", "confirm all paediatric doses against current BNFc before prescribing"],
+      "rationale": "SDCEP/BNFc paediatric dosing for dental infection when antibiotics are indicated.",
+      "strength": "advised (SDCEP)",
+      "certainty": "not_stated",
+      "sources": ["sdcep_drug_prescribing", "bnf_bnfc"],
+      "source_locator": "BNFc amoxicillin / phenoxymethylpenicillin / metronidazole / clarithromycin (paediatric, oral infection).",
+      "status": "verified",
+      "last_reviewed": "2026-08-09"
+    }
+  ]
+}

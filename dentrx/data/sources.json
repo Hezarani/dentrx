@@ -1,0 +1,130 @@
+{
+  "version": "0.1.0",
+  "generated": "2026-08-09",
+  "note": "Authoritative sources DentRx encodes. DentRx stores prescribing FACTS (drug/dose/route/duration) with a pointer to the source here; it paraphrases recommendations and never reproduces copyrighted guideline prose or ADA CDT codes. Cite the primary source (and its DOI/URL) on reuse.",
+  "sources": {
+    "ada_analgesia_adults_2024": {
+      "organization": "American Dental Association (ADASRI, Univ. of Pittsburgh, Univ. of Pennsylvania)",
+      "title": "Evidence-based clinical practice guideline for the pharmacologic management of acute dental pain in adolescents, adults, and older adults",
+      "citation": "Carrasco-Labra A, et al. J Am Dent Assoc. 2024;155(2):102-117.e9.",
+      "year": 2024,
+      "jurisdiction": "US",
+      "doi": "10.1016/j.adaj.2023.10.009",
+      "pmid": "38325969",
+      "url": "https://doi.org/10.1016/j.adaj.2023.10.009"
+    },
+    "ada_analgesia_children_2023": {
+      "organization": "American Dental Association (ADASRI, Univ. of Pittsburgh, Univ. of Pennsylvania)",
+      "title": "Evidence-based clinical practice guideline for the pharmacologic management of acute dental pain in children",
+      "citation": "Carrasco-Labra A, et al. J Am Dent Assoc. 2023;154(9):814-825.e2.",
+      "year": 2023,
+      "jurisdiction": "US",
+      "doi": "10.1016/j.adaj.2023.06.014",
+      "pmid": "37634915",
+      "url": "https://doi.org/10.1016/j.adaj.2023.06.014"
+    },
+    "ada_analgesia_ed_2024": {
+      "organization": "ADA / Univ. of Pittsburgh / Penn Dental Medicine",
+      "title": "Evidence-based clinical practice guidelines for the management of acute dental pain (commentary for ED/urgent-care settings)",
+      "citation": "Green VG, et al. Am J Emerg Med. 2024;89:247-253.",
+      "year": 2024,
+      "jurisdiction": "US",
+      "doi": "10.1016/j.ajem.2024.12.054",
+      "pmid": "39764906",
+      "url": "https://doi.org/10.1016/j.ajem.2024.12.054"
+    },
+    "ada_antibiotics_pulpal_periapical_2019": {
+      "organization": "American Dental Association Council on Scientific Affairs / Center for Evidence-Based Dentistry",
+      "title": "Evidence-based clinical practice guideline on antibiotic use for the urgent management of pulpal- and periapical-related dental pain and intraoral swelling",
+      "citation": "Lockhart PB, et al. J Am Dent Assoc. 2019;150(11):906-921.e12.",
+      "year": 2019,
+      "jurisdiction": "US",
+      "doi": "10.1016/j.adaj.2019.08.020",
+      "pmid": "31668170",
+      "url": "https://doi.org/10.1016/j.adaj.2019.08.020"
+    },
+    "aha_ie_2021": {
+      "organization": "American Heart Association",
+      "title": "Prevention of Viridans Group Streptococcal Infective Endocarditis: A Scientific Statement From the American Heart Association",
+      "citation": "Wilson WR, et al. Circulation. 2021;143(20):e963-e978.",
+      "year": 2021,
+      "jurisdiction": "US",
+      "doi": "10.1161/CIR.0000000000000969",
+      "url": "https://doi.org/10.1161/CIR.0000000000000969"
+    },
+    "ada_prosthetic_joint_2015": {
+      "organization": "American Dental Association Council on Scientific Affairs",
+      "title": "The use of prophylactic antibiotics prior to dental procedures in patients with prosthetic joints",
+      "citation": "Sollecito TP, et al. J Am Dent Assoc. 2015;146(1):11-16.e8.",
+      "year": 2015,
+      "jurisdiction": "US",
+      "doi": "10.1016/j.adaj.2014.11.012",
+      "pmid": "25569493",
+      "url": "https://doi.org/10.1016/j.adaj.2014.11.012"
+    },
+    "aaos_pji_dental_2024": {
+      "organization": "American Academy of Orthopaedic Surgeons",
+      "title": "Prevention of Total Hip and Knee Arthroplasty Periprosthetic Joint Infection in Patients Undergoing Dental Procedures: Clinical Practice Guideline",
+      "citation": "AAOS Clinical Practice Guideline. Adopted December 2024.",
+      "year": 2024,
+      "jurisdiction": "US",
+      "url": "https://www.aaos.org/globalassets/quality-and-practice-resources/dental/dental-2024/prevention-of-total-hip-and-knee-arthroplasty-pji-in-patients-undergoing-dental-procedures-cpg.pdf"
+    },
+    "sdcep_drug_prescribing": {
+      "organization": "Scottish Dental Clinical Effectiveness Programme (SDCEP)",
+      "title": "Drug Prescribing for Dentistry (Dental Clinical Guidance)",
+      "citation": "SDCEP. Drug Prescribing for Dentistry, 3rd ed. (2016); living web edition. Bacterial Infections section updated May 2026; aligned with BNF 91 and BNFC 2025-26.",
+      "year": 2026,
+      "jurisdiction": "UK",
+      "url": "https://www.sdcepdentalprescribing.nhs.scot/"
+    },
+    "nice_ukhsa_dental_abscess": {
+      "organization": "NICE / UK Health Security Agency",
+      "title": "Antimicrobial prescribing summary: dental abscess (NICE CKS / NICE-UKHSA antimicrobial prescribing guidance)",
+      "citation": "NICE Clinical Knowledge Summaries: Dental abscess; NICE/UKHSA antimicrobial prescribing table (Dec 2024).",
+      "year": 2024,
+      "jurisdiction": "UK",
+      "url": "https://cks.nice.org.uk/topics/dental-abscess/"
+    },
+    "fda_codeine_tramadol_2017": {
+      "organization": "U.S. Food and Drug Administration",
+      "title": "FDA Drug Safety Communication: FDA restricts use of prescription codeine pain and cough medicines and tramadol medicines in children; recommends against use in breastfeeding women",
+      "citation": "U.S. FDA Drug Safety Communication, April 20, 2017.",
+      "year": 2017,
+      "jurisdiction": "US",
+      "url": "https://www.fda.gov/drugs/drug-safety-and-availability/fda-drug-safety-communication-fda-restricts-use-prescription-codeine-pain-and-cough-medicines-and"
+    },
+    "aapd_useful_medications": {
+      "organization": "American Academy of Pediatric Dentistry",
+      "title": "Useful Medications for Oral Conditions (The Reference Manual of Pediatric Dentistry)",
+      "citation": "American Academy of Pediatric Dentistry. Useful Medications for Oral Conditions. The Reference Manual of Pediatric Dentistry.",
+      "year": 2024,
+      "jurisdiction": "US",
+      "url": "https://www.aapd.org/globalassets/media/policies_guidelines/r_usefulmeds.pdf"
+    },
+    "bnf_bnfc": {
+      "organization": "Joint Formulary Committee / NICE",
+      "title": "British National Formulary (BNF) and BNF for Children (BNFC)",
+      "citation": "Joint Formulary Committee. BNF 91; BNF for Children 2025-26.",
+      "year": 2026,
+      "jurisdiction": "UK",
+      "url": "https://bnf.nice.org.uk/"
+    },
+    "nice_cg64": {
+      "organization": "National Institute for Health and Care Excellence",
+      "title": "Prophylaxis against infective endocarditis (Clinical guideline CG64)",
+      "citation": "NICE CG64. Published 2008; updated 2016 ('not recommended routinely').",
+      "year": 2016,
+      "jurisdiction": "UK",
+      "url": "https://www.nice.org.uk/guidance/cg64"
+    },
+    "sdcep_ie_prophylaxis": {
+      "organization": "Scottish Dental Clinical Effectiveness Programme (SDCEP)",
+      "title": "Antibiotic Prophylaxis Against Infective Endocarditis — Implementation Advice",
+      "citation": "SDCEP. Antibiotic Prophylaxis Against Infective Endocarditis: Implementation Advice (implements NICE CG64).",
+      "year": 2024,
+      "jurisdiction": "UK",
+      "url": "https://www.antibioticprophylaxis.sdcep.org.uk/"
+    }
+  }
+}

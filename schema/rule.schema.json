@@ -1,0 +1,129 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Hezarani/dentrx/schema/rule.schema.json",
+  "title": "DentRx rule dataset",
+  "description": "A jurisdiction- and population-tagged set of guideline-cited dental prescribing rules. Every rule encodes prescribing FACTS (drug, dose, route, frequency, duration) plus the source citation. Guideline prose is paraphrased, never reproduced. ADA-copyrighted CDT procedure codes are never included.",
+  "type": "object",
+  "required": ["pillar", "version", "generated", "meta", "rules"],
+  "properties": {
+    "pillar": {
+      "type": "string",
+      "enum": ["analgesia", "prophylaxis_ie", "prophylaxis_joint", "therapeutic_infection"],
+      "description": "Which clinical pillar this file covers."
+    },
+    "version": { "type": "string", "description": "Semver of this dataset file." },
+    "generated": { "type": "string", "format": "date", "description": "Date this file was last authored/reviewed." },
+    "meta": {
+      "type": "object",
+      "required": ["disclaimer"],
+      "properties": {
+        "disclaimer": { "type": "string" },
+        "notes": { "type": "string" }
+      }
+    },
+    "rules": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/rule" }
+    }
+  },
+  "$defs": {
+    "rule": {
+      "type": "object",
+      "required": ["id", "pillar", "jurisdiction", "population", "scenario", "recommendation", "rationale", "sources", "status", "last_reviewed"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z]{2,3}\\.[a-z_]+\\.[a-z_]+(\\.[a-z_]+)*$",
+          "description": "Stable id, e.g. 'us.analgesia.adult.first_line'."
+        },
+        "pillar": { "type": "string", "enum": ["analgesia", "prophylaxis_ie", "prophylaxis_joint", "therapeutic_infection"] },
+        "jurisdiction": { "type": "string", "enum": ["US", "UK", "INT"], "description": "US = ADA/AHA/AAOS/FDA/AAPD; UK = SDCEP/NICE/BNF/BNFc; INT = cross-jurisdiction." },
+        "population": {
+          "type": "object",
+          "required": ["group"],
+          "properties": {
+            "group": { "type": "string", "enum": ["adult", "adolescent", "child", "all"] },
+            "age_min_years": { "type": "number" },
+            "age_max_years": { "type": "number" },
+            "notes": { "type": "string" }
+          }
+        },
+        "scenario": {
+          "type": "object",
+          "required": ["indication"],
+          "properties": {
+            "indication": { "type": "string", "description": "Machine key for the clinical situation, e.g. 'acute_dental_pain', 'localized_apical_abscess', 'ie_prophylaxis_dental_procedure'." },
+            "context": { "type": "array", "items": { "type": "string" } },
+            "severity": { "type": "array", "items": { "type": "string", "enum": ["mild", "moderate", "severe", "systemic_involvement"] } },
+            "triggers": {
+              "type": "object",
+              "description": "Structured conditions that must hold for this rule to fire (evaluated by the engine).",
+              "properties": {
+                "cardiac_highest_risk": { "type": "boolean" },
+                "prosthetic_joint": { "type": "boolean" },
+                "systemic_involvement": { "type": "boolean" },
+                "penicillin_allergy": { "oneOf": [ { "type": "string", "enum": ["none", "non_severe", "severe"] }, { "type": "array", "items": { "type": "string", "enum": ["none", "non_severe", "severe"] } } ] }
+              },
+              "additionalProperties": true
+            }
+          }
+        },
+        "recommendation": {
+          "type": "object",
+          "required": ["action"],
+          "properties": {
+            "action": {
+              "type": "string",
+              "enum": ["prescribe", "do_not_prescribe", "prefer_nonpharmacologic", "definitive_dental_treatment", "refer", "individualized_decision"]
+            },
+            "line": { "type": "string", "enum": ["first", "alternative", "reserve"] },
+            "options": {
+              "type": "array",
+              "description": "One or more acceptable regimens. A regimen is either a single drug or a combination.",
+              "items": { "$ref": "#/$defs/regimen" }
+            },
+            "summary": { "type": "string", "description": "One-line paraphrase of the recommendation." }
+          }
+        },
+        "contraindications": { "type": "array", "items": { "type": "string" } },
+        "cautions": { "type": "array", "items": { "type": "string" } },
+        "rationale": { "type": "string", "description": "Paraphrased justification tied to the source." },
+        "strength": { "type": "string", "description": "Guideline strength label as published (e.g. 'strong', 'conditional', 'good practice statement', 'advised')." },
+        "certainty": { "type": "string", "description": "GRADE certainty as published (e.g. 'high', 'moderate', 'low', 'very low'), or 'not_stated'." },
+        "sources": { "type": "array", "items": { "type": "string" }, "description": "Keys into sources.json." },
+        "source_locator": { "type": "string", "description": "Where in the source (recommendation number, table, page)." },
+        "status": { "type": "string", "enum": ["verified", "pending_verification", "deprecated"], "description": "verified = figures checked against the primary source this cycle and awaiting DDS sign-off; pending_verification = structure present, figures not yet extracted." },
+        "last_reviewed": { "type": "string", "format": "date" }
+      }
+    },
+    "regimen": {
+      "type": "object",
+      "properties": {
+        "regimen_id": { "type": "string" },
+        "label": { "type": "string" },
+        "components": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/drug_dose" },
+          "description": "One entry = monotherapy; multiple = combination."
+        },
+        "notes": { "type": "string" }
+      }
+    },
+    "drug_dose": {
+      "type": "object",
+      "required": ["drug"],
+      "properties": {
+        "drug": { "type": "string" },
+        "dose": { "type": "string", "description": "Human-readable dose, e.g. '2 g', '500 mg', '10–15 mg/kg'." },
+        "dose_basis": { "type": "string", "enum": ["fixed", "weight"], "default": "fixed" },
+        "route": { "type": "string", "default": "oral" },
+        "frequency": { "type": "string" },
+        "duration": { "type": "string" },
+        "timing": { "type": "string", "description": "e.g. 'single dose 30–60 min before procedure'." },
+        "max_single": { "type": "string" },
+        "max_daily": { "type": "string" },
+        "notes": { "type": "string" }
+      }
+    }
+  }
+}

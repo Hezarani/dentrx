@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>DentRx — Guideline-Cited Dental Prescribing Reference</title>
+<meta name="description" content="DentRx is a free, open, guideline-cited dental prescribing reference for antibiotics and analgesics — US (ADA/AHA/AAOS) and UK (SDCEP/NICE/BNF), adults and children. Educational reference, not a prescription." />
+<meta name="keywords" content="dental prescribing, dental antibiotics, antibiotic prophylaxis, infective endocarditis, prosthetic joint, dental analgesia, antibiotic stewardship, ADA, AHA, SDCEP, NICE, evidence-based dentistry" />
+<meta name="author" content="Hossein Boustani Hezarani" />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://hezarani.github.io/dentrx/" />
+<meta name="theme-color" content="#0a7d7a" media="(prefers-color-scheme: light)" />
+<meta name="theme-color" content="#0b1220" media="(prefers-color-scheme: dark)" />
+<!-- Open Graph / social -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="DentRx — Guideline-Cited Dental Prescribing Reference" />
+<meta property="og:description" content="Free, open, cited dental prescribing reference: antibiotic prophylaxis, therapeutic antibiotics, and acute-pain analgesia — US + UK, adults + children. Educational, not a prescription." />
+<meta property="og:url" content="https://hezarani.github.io/dentrx/" />
+<meta property="og:image" content="https://hezarani.github.io/dentrx/assets/social-preview.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="DentRx — Guideline-Cited Dental Prescribing Reference" />
+<meta name="twitter:description" content="Open, cited dental prescribing reference — antibiotics & analgesics, US + UK, adults + children." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext y='26' font-size='26'%3E%F0%9F%A6%B7%3C/text%3E%3C/svg%3E" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalWebPage",
+  "name": "DentRx — Guideline-Cited Dental Prescribing Reference",
+  "audience": { "@type": "MedicalAudience", "audienceType": "Clinician" },
+  "about": "Evidence-based dental prescribing of antibiotics and analgesics",
+  "citation": ["ADA 2024 acute dental pain guideline", "ADA 2019 pulpal/periapical antibiotics", "AHA 2021 infective endocarditis prophylaxis", "ADA 2015 + AAOS 2024 prosthetic joint", "SDCEP Drug Prescribing for Dentistry", "NICE/UKHSA"],
+  "license": "https://opensource.org/licenses/MIT",
+  "isAccessibleForFree": true
+}
+</script>
+<script src="data.js" defer></script>
+<style>
+  :root{
+    --bg:#eef1f4; --surface:#ffffff; --surface-2:#f6f8fa; --ink:#12161c; --ink-2:#5b6572;
+    --line:rgba(18,22,28,.10); --line-2:rgba(18,22,28,.06);
+    --brand:#0a7d7a; --brand-ink:#0a6360; --brand-tint:rgba(10,125,122,.10);
+    --go:#1c7a43; --go-tint:rgba(28,122,67,.12);
+    --stop:#b23b2e; --stop-tint:rgba(178,59,46,.10);
+    --warn:#9a6a00; --warn-tint:rgba(154,106,0,.12);
+    --shadow:0 1px 2px rgba(18,22,28,.06),0 8px 24px rgba(18,22,28,.08);
+    --shadow-lg:0 8px 40px rgba(18,22,28,.18);
+    --r:16px; --r-sm:11px; --maxw:1080px;
+    --spring:cubic-bezier(.22,.61,.36,1);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0b0f14; --surface:#131922; --surface-2:#0f151d; --ink:#eaf0f6; --ink-2:#9fb0c0;
+      --line:rgba(255,255,255,.12); --line-2:rgba(255,255,255,.07);
+      --brand:#3fd0cb; --brand-ink:#7fe6e2; --brand-tint:rgba(63,208,203,.14);
+      --go:#5fce8b; --go-tint:rgba(95,206,139,.15);
+      --stop:#ff6f61; --stop-tint:rgba(255,111,97,.14);
+      --warn:#e7b24a; --warn-tint:rgba(231,178,74,.15);
+      --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.5);
+      --shadow-lg:0 12px 50px rgba(0,0,0,.6);
+    }
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font:100%/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+  }
+  .skip{position:absolute;left:-999px;top:0;background:var(--brand);color:#fff;padding:10px 14px;border-radius:8px;z-index:100}
+  .skip:focus{left:12px;top:12px}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(16px,4vw,28px)}
+
+  /* Header — translucent material */
+  header.top{
+    position:sticky;top:0;z-index:30;
+    background:color-mix(in srgb,var(--bg) 72%,transparent);
+    backdrop-filter:blur(20px) saturate(180%); -webkit-backdrop-filter:blur(20px) saturate(180%);
+    border-bottom:1px solid var(--line-2);
+  }
+  .top .wrap{display:flex;align-items:center;gap:14px;height:60px}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:680;letter-spacing:-.02em;font-size:19px}
+  .logo .mark{width:30px;height:30px;display:grid;place-items:center;background:var(--brand-tint);border-radius:9px;font-size:17px}
+  .top .spacer{flex:1}
+  .juris{display:inline-flex;background:var(--surface-2);border:1px solid var(--line);border-radius:999px;padding:3px}
+  .juris button{border:0;background:transparent;color:var(--ink-2);font:inherit;font-weight:600;font-size:13px;padding:6px 14px;border-radius:999px;cursor:pointer;transition:color .2s}
+  .juris button[aria-pressed="true"]{background:var(--surface);color:var(--brand-ink);box-shadow:var(--shadow)}
+  .ghost{border:1px solid var(--line);background:var(--surface);color:var(--ink);font:inherit;font-weight:600;font-size:13px;padding:8px 13px;border-radius:10px;cursor:pointer}
+  .ghost:active{transform:scale(.97)}
+
+  /* Hero */
+  .hero{padding:34px 0 8px}
+  .hero h1{font-size:clamp(1.7rem,4.4vw,2.7rem);line-height:1.04;letter-spacing:-.03em;margin:0 0 8px;font-weight:720}
+  .hero p{margin:0;color:var(--ink-2);max-width:60ch;font-size:clamp(1rem,1.6vw,1.12rem)}
+
+  /* Layout */
+  .grid{display:grid;grid-template-columns:340px 1fr;gap:22px;padding:20px 0 40px;align-items:start}
+  @media (max-width:840px){.grid{grid-template-columns:1fr}}
+  .panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow)}
+  aside.controls{position:sticky;top:76px;padding:18px}
+  @media (max-width:840px){aside.controls{position:static}}
+  .controls h2{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-2);margin:2px 0 10px;font-weight:700}
+  .field{margin:0 0 18px}
+  .field>label{display:block;font-weight:640;font-size:14px;margin-bottom:8px}
+  .field .hint{color:var(--ink-2);font-size:12px;font-weight:500}
+
+  /* Pillar selector */
+  .pillars{display:grid;gap:8px}
+  .pillar{display:flex;gap:11px;align-items:flex-start;text-align:left;width:100%;border:1px solid var(--line);background:var(--surface-2);border-radius:var(--r-sm);padding:11px 12px;cursor:pointer;transition:transform .12s var(--spring),border-color .2s,background .2s}
+  .pillar:active{transform:scale(.985)}
+  .pillar[aria-pressed="true"]{border-color:var(--brand);background:var(--brand-tint)}
+  .pillar .pi{font-size:18px;line-height:1.2}
+  .pillar .pt{font-weight:650;font-size:14px}
+  .pillar .pd{color:var(--ink-2);font-size:12px;margin-top:1px}
+
+  /* Segmented controls */
+  .seg{display:flex;background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:3px;gap:2px;flex-wrap:wrap}
+  .seg button{flex:1 1 auto;min-width:56px;border:0;background:transparent;color:var(--ink-2);font:inherit;font-weight:600;font-size:13px;padding:7px 10px;border-radius:8px;cursor:pointer;transition:color .2s,transform .1s}
+  .seg button:active{transform:scale(.96)}
+  .seg button[aria-pressed="true"]{background:var(--surface);color:var(--brand-ink);box-shadow:var(--shadow)}
+  .chip-info{display:inline-flex;align-items:center;gap:6px;background:var(--surface-2);border:1px solid var(--line);border-radius:999px;padding:6px 11px;font-size:12.5px;color:var(--ink-2)}
+
+  /* Results */
+  .results{display:grid;gap:16px;min-height:200px}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden;animation:rise .34s var(--spring) both}
+  @keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  .card .head{display:flex;align-items:center;gap:10px;padding:15px 18px;border-bottom:1px solid var(--line-2)}
+  .verdict{font-weight:720;font-size:15px;letter-spacing:-.01em}
+  .dot{width:9px;height:9px;border-radius:50%;flex:0 0 auto}
+  .badge{margin-left:auto;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:4px 9px;border-radius:999px}
+  .b-verified{background:var(--go-tint);color:var(--go)}
+  .b-pending{background:var(--warn-tint);color:var(--warn)}
+  .card .body{padding:16px 18px}
+  .summary{font-size:15px;margin:0 0 14px}
+  .opt{border:1px solid var(--line);border-radius:12px;padding:12px 13px;margin:10px 0;background:var(--surface-2)}
+  .opt .ol{font-weight:660;font-size:13.5px;margin-bottom:7px;display:flex;gap:8px;align-items:center}
+  .opt .ol .pill{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--brand-ink);background:var(--brand-tint);padding:2px 7px;border-radius:6px}
+  .drug{display:flex;flex-wrap:wrap;gap:6px 10px;font-size:13.5px;padding:4px 0}
+  .drug .dn{font-weight:650}
+  .drug .dv{color:var(--ink-2)}
+  .opt .note{font-size:12.5px;color:var(--ink-2);margin-top:6px;font-style:italic}
+  .meta-row{margin-top:12px;font-size:13px}
+  .meta-row .k{font-weight:660;color:var(--ink)}
+  .contra{color:var(--stop)}
+  .cite{display:block;font-size:12.5px;color:var(--ink-2);margin-top:6px;padding-left:14px;border-left:2px solid var(--brand-tint)}
+  .cite a{color:var(--brand-ink)}
+  .needs{background:var(--warn-tint);color:var(--warn);border-radius:10px;padding:10px 13px;font-size:13px;font-weight:560}
+  .empty{color:var(--ink-2);text-align:center;padding:50px 20px}
+
+  /* Persistent disclaimer strip */
+  .disc-strip{display:flex;gap:10px;align-items:flex-start;background:var(--stop-tint);border:1px solid color-mix(in srgb,var(--stop) 30%,transparent);color:var(--ink);border-radius:12px;padding:11px 14px;font-size:12.5px;margin:0 0 16px}
+  .disc-strip b{color:var(--stop)}
+
+  footer{border-top:1px solid var(--line-2);padding:26px 0 60px;color:var(--ink-2);font-size:13px}
+  footer a{color:var(--brand-ink)}
+  footer .cols{display:flex;flex-wrap:wrap;gap:22px;justify-content:space-between}
+
+  /* Disclaimer modal */
+  .scrim{position:fixed;inset:0;z-index:50;background:rgba(6,10,16,.5);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:grid;place-items:center;padding:20px}
+  .modal{max-width:520px;width:100%;background:var(--surface);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow-lg);padding:26px;animation:pop .32s var(--spring) both}
+  @keyframes pop{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:none}}
+  .modal h2{margin:0 0 10px;font-size:20px;letter-spacing:-.02em}
+  .modal p{margin:0 0 12px;font-size:14px;color:var(--ink-2)}
+  .modal ul{margin:0 0 16px;padding-left:18px;font-size:14px;color:var(--ink-2)}
+  .modal .cta{width:100%;border:0;background:var(--brand);color:#fff;font:inherit;font-weight:680;font-size:15px;padding:13px;border-radius:12px;cursor:pointer;transition:transform .1s,filter .2s}
+  .modal .cta:active{transform:scale(.98)}
+  .modal .cta:hover{filter:brightness(1.05)}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:.001ms !important;transition-duration:.001ms !important}
+    .card{animation:none}
+  }
+  @media (prefers-reduced-transparency: reduce){
+    header.top{background:var(--bg)!important;backdrop-filter:none!important}
+    .scrim{background:rgba(6,10,16,.8);backdrop-filter:none}
+  }
+  @media (prefers-contrast: more){:root{--line:rgba(18,22,28,.4);--ink-2:#333}}
+
+  /* Print — a clean reference sheet */
+  @media print{
+    header.top,aside.controls,.hero p,footer,.skip{display:none!important}
+    body{background:#fff;color:#000}
+    .grid{grid-template-columns:1fr;padding:0}
+    .card{box-shadow:none;border:1px solid #ccc;break-inside:avoid}
+    .disc-strip{border:1px solid #000}
+    a{color:#000;text-decoration:underline}
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#results">Skip to recommendations</a>
+
+<!-- First-load disclaimer gate -->
+<div class="scrim" id="gate" role="dialog" aria-modal="true" aria-labelledby="gate-h">
+  <div class="modal">
+    <h2 id="gate-h">🦷 DentRx — please read first</h2>
+    <p><b>DentRx is an educational clinical reference, not a prescription.</b> It summarises published prescribing guidance so you can look it up quickly with its citation.</p>
+    <ul>
+      <li>It does <b>not</b> replace your professional judgement, the current official guidelines, or your local formulary.</li>
+      <li>Verify every dose against the primary source before prescribing.</li>
+      <li>Guidelines change and differ by country — always confirm you are using current, local guidance.</li>
+    </ul>
+    <button class="cta" id="gate-ok">I understand — continue</button>
+  </div>
+</div>
+
+<header class="top">
+  <div class="wrap">
+    <div class="logo"><span class="mark">🦷</span><span>DentRx</span></div>
+    <div class="spacer"></div>
+    <div class="juris" role="group" aria-label="Jurisdiction">
+      <button data-juris="US" aria-pressed="true">🇺🇸 US</button>
+      <button data-juris="UK" aria-pressed="false">🇬🇧 UK</button>
+    </div>
+    <button class="ghost" id="print-btn" title="Print / save as PDF">Print</button>
+  </div>
+</header>
+
+<div class="wrap hero">
+  <h1>Dental prescribing, with the guideline attached.</h1>
+  <p>Antibiotic prophylaxis, therapeutic antibiotics, and acute-pain analgesia — for the US and UK, adults and children. Every recommendation shows its source. Free and open.</p>
+</div>
+
+<div class="wrap">
+  <div class="grid">
+    <aside class="controls panel" aria-label="Choose scenario">
+      <h2>Clinical area</h2>
+      <div class="field">
+        <div class="pillars" id="pillars" role="group" aria-label="Clinical pillar"></div>
+      </div>
+      <h2>Patient</h2>
+      <div class="field">
+        <label for="pop">Age group</label>
+        <div class="seg" id="pop" role="group" aria-label="Age group">
+          <button data-pop="adult" aria-pressed="true">Adult</button>
+          <button data-pop="adolescent" aria-pressed="false">Adolescent</button>
+          <button data-pop="child" aria-pressed="false">Child &lt;12</button>
+        </div>
+      </div>
+      <div id="dynamic"></div>
+    </aside>
+
+    <main>
+      <div class="disc-strip"><span>⚠️</span><span><b>Not a prescription.</b> Educational reference only — verify against the current source and your local formulary. Definitive dental treatment is the priority.</span></div>
+      <section class="results" id="results" aria-live="polite"></section>
+    </main>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap cols">
+    <div>DentRx · MIT-licensed · © 2026 Hossein Boustani Hezarani<br/>An open <a href="https://github.com/Hezarani/dentrx">DentGit</a> project. Sources located via PubMed.</div>
+    <div style="max-width:44ch">Cite the underlying guideline you rely on. See the <a href="EVIDENCE.md">evidence dossier</a> for full sources &amp; DOIs.</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var DB = window.DENTRX || {pillars:{},sources:{}};
+  var state = { jurisdiction:"US", population:"adult", pillar:"analgesia", patient:{} };
+
+  var PILLAR_META = {
+    analgesia:{icon:"💊",title:"Acute-pain analgesia",desc:"NSAID / acetaminophen; opioid stewardship",inputs:[]},
+    prophylaxis_ie:{icon:"🫀",title:"Endocarditis prophylaxis",desc:"Highest-risk cardiac patients only",inputs:["cardiac_highest_risk","penicillin_allergy","can_take_oral"]},
+    prophylaxis_joint:{icon:"🦵",title:"Prosthetic-joint prophylaxis",desc:"Generally not recommended",inputs:["prosthetic_joint"]},
+    therapeutic_infection:{icon:"🦠",title:"Therapeutic antibiotics",desc:"Pulpal / periapical infection",inputs:["systemic_involvement","penicillin_allergy"]}
+  };
+  var DEFAULTS = {
+    prophylaxis_ie:{cardiac_highest_risk:true,penicillin_allergy:"none",can_take_oral:true},
+    prophylaxis_joint:{prosthetic_joint:true},
+    therapeutic_infection:{systemic_involvement:false,penicillin_allergy:"none"},
+    analgesia:{}
+  };
+  var INPUT_META = {
+    cardiac_highest_risk:{label:"Highest-risk cardiac condition?",hint:"Prosthetic valve, prior IE, transplant valvulopathy, or specific CHD",type:"bool"},
+    can_take_oral:{label:"Can take oral medication?",type:"bool"},
+    systemic_involvement:{label:"Systemic involvement (fever / malaise)?",type:"bool"},
+    prosthetic_joint:{label:"Patient has a prosthetic joint",type:"fixed"},
+    penicillin_allergy:{label:"Penicillin allergy",type:"allergy"}
+  };
+
+  // ---- engine (mirror of the Python core) ----
+  function popMatch(group,pop){
+    if(group==="all")return true;
+    if(group==="adult")return pop==="adult"||pop==="adolescent";
+    if(group==="adolescent")return pop==="adolescent";
+    if(group==="child")return pop==="child";
+    return group===pop;
+  }
+  function evaluate(trig,patient){
+    var matched=0,missing=[],ok=true;
+    for(var k in trig){ if(!Object.prototype.hasOwnProperty.call(trig,k))continue;
+      if(!(k in patient)||patient[k]==null){missing.push(k);continue;}
+      var want=trig[k],pv=patient[k],hit=Array.isArray(want)?want.indexOf(pv)>=0:pv===want;
+      if(hit)matched++; else ok=false;
+    }
+    return {ok:ok,matched:matched,missing:missing};
+  }
+  function citations(keys){
+    return (keys||[]).map(function(k){var s=DB.sources[k];if(!s)return null;
+      return {citation:s.citation||s.title||k, url:s.url||(s.doi?("https://doi.org/"+s.doi):null), org:s.organization};
+    }).filter(Boolean);
+  }
+  function recommend(){
+    var p=DB.pillars[state.pillar]; if(!p)return {results:[],needs:[]};
+    var scored=[],needs={};
+    p.rules.forEach(function(r){
+      if(r.jurisdiction!==state.jurisdiction)return;
+      if(!popMatch((r.population&&r.population.group)||"all",state.population))return;
+      var trig=(r.scenario&&r.scenario.triggers)||{};
+      var e=evaluate(trig,state.patient); if(!e.ok)return;
+      scored.push({m:e.matched,miss:e.missing.length,r:r});
+    });
+    scored.sort(function(a,b){return b.m-a.m||a.miss-b.miss});
+    var top=scored.length?scored[0].m:0;
+    scored.forEach(function(s){ if(s.m===top){var t=(s.r.scenario&&s.r.scenario.triggers)||{};for(var k in t){if(!(k in state.patient))needs[k]=1;}} });
+    return {results:scored.map(function(s){return s.r}),needs:Object.keys(needs)};
+  }
+
+  // ---- rendering ----
+  var VERDICT = {
+    prescribe:{t:"Prescribe",c:"var(--brand)"},
+    do_not_prescribe:{t:"Do not prescribe",c:"var(--go)"},
+    definitive_dental_treatment:{t:"Definitive dental treatment — no antibiotic",c:"var(--go)"},
+    prefer_nonpharmacologic:{t:"Prefer non-drug measures",c:"var(--go)"},
+    individualized_decision:{t:"Individualised decision",c:"var(--warn)"},
+    refer:{t:"Refer",c:"var(--warn)"}
+  };
+  function esc(s){return String(s==null?"":s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+
+  function drugLine(c){
+    var parts=[];
+    ["dose","route","frequency","duration","timing","max_daily","max_single"].forEach(function(k){
+      if(c[k])parts.push('<span class="dv">'+esc(k.replace("_"," "))+": "+esc(c[k])+"</span>");
+    });
+    return '<div class="drug"><span class="dn">'+esc(c.drug)+'</span>'+parts.join("")+'</div>';
+  }
+  function optBlock(o){
+    var comps=(o.components||[]).map(drugLine).join("");
+    var line='<div class="ol">'+(o.label?esc(o.label):"Option")+"</div>";
+    var note=o.notes?'<div class="note">'+esc(o.notes)+"</div>":"";
+    return '<div class="opt">'+line+comps+note+"</div>";
+  }
+  function cardHTML(r){
+    var rec=r.recommendation||{}, v=VERDICT[rec.action]||{t:rec.action||"—",c:"var(--brand)"};
+    var badge=r.status==="verified"?'<span class="badge b-verified">verified</span>':'<span class="badge b-pending">to verify</span>';
+    var opts=(rec.options||[]).map(optBlock).join("");
+    var contra=(r.contraindications&&r.contraindications.length)?'<div class="meta-row"><span class="k contra">Contraindications:</span> '+esc(r.contraindications.join("; "))+"</div>":"";
+    var caut=(r.cautions&&r.cautions.length)?'<div class="meta-row"><span class="k">Cautions:</span> '+esc(r.cautions.join("; "))+"</div>":"";
+    var why=r.rationale?'<div class="meta-row"><span class="k">Why:</span> '+esc(r.rationale)+"</div>":"";
+    var str=(r.strength||r.certainty)?'<div class="meta-row"><span class="k">Guideline:</span> '+esc(r.strength||"")+(r.certainty&&r.certainty!=="not_stated"?" · certainty "+esc(r.certainty):"")+"</div>":"";
+    var cites=citations(r.sources).map(function(c){return '<span class="cite">'+esc(c.citation)+(c.url?' · <a href="'+esc(c.url)+'" target="_blank" rel="noopener">source ↗</a>':"")+"</span>"}).join("");
+    var prov='<div class="meta-row" style="color:var(--ink-2);font-size:12px;margin-top:10px">'+esc((r.jurisdiction||"")+" guidance · reviewed "+(r.last_reviewed||"")+" · educational reference — verify against current local guidance")+"</div>";
+    return '<article class="card"><div class="head"><span class="dot" style="background:'+v.c+'"></span><span class="verdict">'+esc(v.t)+"</span>"+badge+'</div><div class="body">'+
+      (rec.summary?'<p class="summary">'+esc(rec.summary)+"</p>":"")+opts+contra+caut+why+str+
+      '<div class="meta-row"><span class="k">Sources:</span></div>'+cites+prov+"</div></article>";
+  }
+
+  function render(){
+    // pillar buttons
+    document.querySelectorAll("#pillars .pillar").forEach(function(b){b.setAttribute("aria-pressed",String(b.dataset.pillar===state.pillar))});
+    // dynamic inputs
+    var host=document.getElementById("dynamic"); host.innerHTML="";
+    var meta=PILLAR_META[state.pillar];
+    if(state.pillar==="analgesia"){
+      host.innerHTML='<div class="field"><span class="chip-info">💡 Treat pain with analgesics, not antibiotics.</span></div>';
+    }
+    meta.inputs.forEach(function(key){
+      var im=INPUT_META[key], f=document.createElement("div"); f.className="field";
+      if(im.type==="fixed"){ f.innerHTML='<span class="chip-info">✔ '+esc(im.label)+"</span>"; host.appendChild(f); return; }
+      var opts;
+      if(im.type==="allergy"){opts=[["none","None"],["non_severe","Non-severe"],["severe","Severe"]];}
+      else {opts=[[true,"Yes"],[false,"No"]];}
+      var cur=state.patient[key];
+      var btns=opts.map(function(o){var on=String(cur)===String(o[0]);return '<button data-key="'+key+'" data-val="'+o[0]+'" aria-pressed="'+on+'">'+o[1]+"</button>"}).join("");
+      f.innerHTML='<label>'+esc(im.label)+"</label>"+(im.hint?'<div class="hint" style="margin:-4px 0 8px">'+esc(im.hint)+"</div>":"")+'<div class="seg" role="group" aria-label="'+esc(im.label)+'">'+btns+"</div>";
+      host.appendChild(f);
+    });
+    // results
+    var out=recommend(), el=document.getElementById("results");
+    var html="";
+    if(out.needs.length){
+      var labels=out.needs.map(function(k){return (INPUT_META[k]&&INPUT_META[k].label)||k}).join(", ");
+      html+='<div class="needs">To sharpen the match, set: '+esc(labels)+"</div>";
+    }
+    if(!out.results.length){ html+='<div class="card"><div class="empty">No matching rule for these inputs.<br/>Try a different age group or jurisdiction.</div></div>'; }
+    else { html+=out.results.map(cardHTML).join(""); }
+    el.innerHTML=html;
+  }
+
+  // ---- events ----
+  function buildPillars(){
+    var host=document.getElementById("pillars");
+    host.innerHTML=Object.keys(PILLAR_META).map(function(k){var m=PILLAR_META[k];
+      return '<button class="pillar" data-pillar="'+k+'" aria-pressed="'+(k===state.pillar)+'"><span class="pi">'+m.icon+'</span><span><span class="pt">'+m.title+'</span><span class="pd">'+m.desc+"</span></span></button>";
+    }).join("");
+  }
+  document.addEventListener("click",function(e){
+    var t=e.target.closest("[data-pillar],[data-pop],[data-juris],[data-key]"); if(!t)return;
+    if(t.dataset.pillar){state.pillar=t.dataset.pillar; state.patient=Object.assign({},DEFAULTS[state.pillar]||{}); render();}
+    else if(t.dataset.pop){state.population=t.dataset.pop; document.querySelectorAll("#pop button").forEach(function(b){b.setAttribute("aria-pressed",String(b===t))}); render();}
+    else if(t.dataset.juris){state.jurisdiction=t.dataset.juris; document.querySelectorAll(".juris button").forEach(function(b){b.setAttribute("aria-pressed",String(b===t))}); render();}
+    else if(t.dataset.key){var v=t.dataset.val; state.patient[t.dataset.key]=(v==="true"?true:v==="false"?false:v); render();}
+  });
+  document.getElementById("print-btn").addEventListener("click",function(){window.print()});
+  var gate=document.getElementById("gate");
+  document.getElementById("gate-ok").addEventListener("click",function(){gate.style.display="none"});
+
+  // init
+  state.patient=Object.assign({},DEFAULTS[state.pillar]||{});
+  function boot(){ if(!window.DENTRX){setTimeout(boot,60);return;} DB=window.DENTRX; buildPillars(); render(); }
+  boot();
+})();
+</script>
+</body>
+</html>

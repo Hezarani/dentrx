@@ -1,0 +1,20 @@
+{
+  "title": "DentRx: an open, guideline-cited dental prescribing reference (antibiotics & analgesics)",
+  "description": "DentRx encodes published dental prescribing guidance — acute-pain analgesia, infective-endocarditis and prosthetic-joint antibiotic prophylaxis, and therapeutic antibiotics for pulpal/periapical infection — as a tested, versioned, citation-linked dataset with a recommendation engine, a zero-install web app, and a Python package. It spans US (ADA/AHA/AAOS/FDA/AAPD) and UK (SDCEP/NICE/BNF) guidance for adults and children. Educational reference, not a prescription.",
+  "upload_type": "software",
+  "license": "MIT",
+  "access_right": "open",
+  "creators": [
+    { "name": "Boustani Hezarani, Hossein", "orcid": "0009-0007-8481-0498" }
+  ],
+  "keywords": [
+    "dentistry",
+    "prescribing",
+    "antibiotic stewardship",
+    "analgesia",
+    "antibiotic prophylaxis",
+    "clinical decision support",
+    "evidence-based dentistry",
+    "open science"
+  ]
+}

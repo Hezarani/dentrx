@@ -1,0 +1,56 @@
+{
+  "pillar": "prophylaxis_joint",
+  "version": "0.1.0",
+  "generated": "2026-08-09",
+  "meta": {
+    "disclaimer": "Educational clinical reference only — not a prescription. For patients with prosthetic (replacement) joints, routine antibiotic prophylaxis before dental procedures is NOT recommended. Any exception is an individualised decision made with the orthopaedic surgeon and patient. Verify against current ADA/AAOS/SDCEP guidance.",
+    "notes": "US position: ADA 2015 (Sollecito et al.) found no association between dental procedures and prosthetic joint infection; AAOS 2024 CPG reinforced that systemic antibiotic prophylaxis before dental procedures does not reduce periprosthetic joint infection risk. UK: SDCEP does not recommend prophylaxis for prosthetic joints before dental treatment."
+  },
+  "rules": [
+    {
+      "id": "us.prophylaxis_joint.default_not_recommended",
+      "pillar": "prophylaxis_joint",
+      "jurisdiction": "US",
+      "population": { "group": "all" },
+      "scenario": {
+        "indication": "prosthetic_joint_dental_procedure",
+        "triggers": { "prosthetic_joint": true }
+      },
+      "recommendation": {
+        "action": "do_not_prescribe",
+        "summary": "In general, prophylactic antibiotics are NOT recommended before dental procedures to prevent prosthetic joint infection. The 2024 AAOS guideline found systemic prophylaxis before dental procedures does not reduce periprosthetic joint infection risk.",
+        "options": []
+      },
+      "cautions": ["An individualised decision (in consultation with the orthopaedic surgeon and patient) may be considered only in specific high-risk circumstances."],
+      "rationale": "Best evidence fails to show an association between dental procedures and prosthetic joint infection; prophylaxis carries resistance, adverse-reaction, and cost harms without demonstrated benefit.",
+      "strength": "recommendation (ADA 2015); limited-strength (AAOS 2024)",
+      "certainty": "low",
+      "sources": ["ada_prosthetic_joint_2015", "aaos_pji_dental_2024"],
+      "source_locator": "ADA 2015 clinical recommendation; AAOS 2024 CPG.",
+      "status": "verified",
+      "last_reviewed": "2026-08-09"
+    },
+    {
+      "id": "uk.prophylaxis_joint.default_not_recommended",
+      "pillar": "prophylaxis_joint",
+      "jurisdiction": "UK",
+      "population": { "group": "all" },
+      "scenario": {
+        "indication": "prosthetic_joint_dental_procedure",
+        "triggers": { "prosthetic_joint": true }
+      },
+      "recommendation": {
+        "action": "do_not_prescribe",
+        "summary": "Antibiotic prophylaxis to prevent prosthetic joint infection is not recommended before dental procedures.",
+        "options": []
+      },
+      "rationale": "SDCEP advises against antibiotic prophylaxis for prosthetic joints prior to dental treatment.",
+      "strength": "advised (SDCEP)",
+      "certainty": "not_stated",
+      "sources": ["sdcep_drug_prescribing"],
+      "source_locator": "SDCEP Drug Prescribing for Dentistry — antibiotic prophylaxis.",
+      "status": "verified",
+      "last_reviewed": "2026-08-09"
+    }
+  ]
+}
