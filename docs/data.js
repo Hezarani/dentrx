@@ -155,10 +155,7 @@ window.DENTRX = {
             "severity": [
               "mild",
               "moderate"
-            ],
-            "triggers": {
-              "penicillin_allergy": "none"
-            }
+            ]
           },
           "recommendation": {
             "action": "prescribe",

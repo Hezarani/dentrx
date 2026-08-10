@@ -9,6 +9,12 @@
 *NSAID-first analgesia · antibiotic prophylaxis · therapeutic infection · stewardship-forward*
 *US (ADA / AHA / AAOS) + UK (SDCEP / NICE / BNF) · adults + children · every recommendation carries its citation*
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21874495.svg)](https://doi.org/10.5281/zenodo.21874495)
+[![PyPI](https://img.shields.io/pypi/v/dentrx.svg)](https://pypi.org/project/dentrx/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
+**[▶ Open the live web app](https://hezarani.github.io/dentrx/)** · **[pip install dentrx](https://pypi.org/project/dentrx/)**
+
 </div>
 
 > [!WARNING]

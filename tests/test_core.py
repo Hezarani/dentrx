@@ -202,3 +202,12 @@ def test_us_therapeutic_severe_matches_ada2019_agents():
     drugs = _all_drugs(res)
     assert "azithromycin" in drugs and "clindamycin" in drugs
     assert "cephalexin" not in drugs
+
+
+def test_analgesia_first_line_ranks_above_opioid_reserve():
+    # UI review: first-line NSAID must be the headline card for acute pain, not opioids
+    res = recommend("analgesia", "US", "adult")
+    assert res["results"], "no analgesia result"
+    assert res["results"][0]["id"] == "us.analgesia.adult.first_line"
+    # analgesia must not prompt for penicillin allergy (it doesn't depend on it)
+    assert "penicillin_allergy" not in res["needs_input"]

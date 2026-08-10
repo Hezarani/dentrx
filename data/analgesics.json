@@ -15,8 +15,7 @@
       "scenario": {
         "indication": "acute_dental_pain",
         "context": ["post_simple_extraction", "post_surgical_extraction", "toothache_pulpal_or_periapical_temporary"],
-        "severity": ["mild", "moderate"],
-        "triggers": { "penicillin_allergy": "none" }
+        "severity": ["mild", "moderate"]
       },
       "recommendation": {
         "action": "prescribe",
